@@ -1,0 +1,4 @@
+dependencies {
+    compile project(':conf-js')
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:0.6.3"
+}

@@ -1,0 +1,108 @@
+@import "g-parameters";
+
+.slider-background {
+  background: $background-intro-gradient;
+
+  .background-color-pages {
+    fill: $background-color;
+    r: 8;
+    transition: cx 250ms ease-in, cy 250ms ease-in, r 500ms 125ms ease-in-out;
+  }
+  .circle-sm {
+    fill: $background-color;
+    opacity: 0.75;
+    r: 5;
+  }
+  .circle-reg {
+    fill: $background-color;
+    opacity: 0.75;
+    r: 8;
+  }
+
+  .animation {
+    transform-origin: center;
+    &:nth-of-type(2n) {
+      animation: rotate_1 6.5s linear;
+      animation-iteration-count: infinite;
+    }
+    &:nth-of-type(2n + 1) {
+      animation: rotate_2 6s linear;
+      animation-iteration-count: infinite;
+    }
+    &:nth-of-type(3n) {
+      animation: rotate_3 5s linear;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+#kotlin-conf-logo {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 300px;
+  transition: transform 583ms cubic-bezier(1, 0, 0.5, 1), opacity 500ms cubic-bezier(0.5, 0, 0, 1);
+
+  .kc-st0 {
+    fill:#4BB8F6;
+  }
+  .kc-st1 {
+    fill:#FF7616;
+  }
+  .kc-st2 {
+    fill: $background-color;
+  }
+}
+
+@keyframes rotate_1 {
+  0% {
+    transform: rotate(0deg) translateX(0rem);
+  }
+  25% {
+    transform: rotate(-180deg) translateX(0.5rem);
+  }
+  50% {
+    transform: rotate(-360deg) translateX(0.25rem);
+  }
+  75% {
+    transform: rotate(-540deg) translateX(0.5rem);
+  }
+  100% {
+    transform: rotate(-720deg) translateX(0rem);
+  }
+}
+@keyframes rotate_2 {
+  0% {
+    transform: rotate(0deg) translateX(0rem);
+  }
+  25% {
+    transform: rotate(180deg) translateX(0.75rem);
+  }
+  50% {
+    transform: rotate(360deg) translateX(0rem);
+  }
+  75% {
+    transform: rotate(540deg) translateX(0.5rem);
+  }
+  100% {
+    transform: rotate(720deg) translateX(0rem);
+  }
+}
+@keyframes rotate_3 {
+  0% {
+    transform: rotate(0deg) translateX(0.5rem);
+  }
+  25% {
+    transform: rotate(180deg) translateX(0.25rem);
+  }
+  50% {
+    transform: rotate(360deg) translateX(0.5rem);
+  }
+  75% {
+    transform: rotate(540deg) translateX(0.25rem);
+  }
+  100% {
+    transform: rotate(720deg) translateX(0.5rem);
+  }
+}

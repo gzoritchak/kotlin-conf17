@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+    }
+}
+
+dependencies {
+    compile project(':conf-js')
+    compile project(':runner-js')
+    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+}
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'kotlin-dce-js'
+
+node {
+//    download = true
+}
+
+task yarnInstall(type: YarnTask) {
+    args = ['install']
+}
+
+runDceTestKotlinJs.enabled = false
+
+task populateNodeModules(type: Copy, dependsOn: [compileKotlin2Js, compileTestKotlin2Js]) {
+
+    from compileKotlin2Js.destinationDir
+
+    configurations.testCompile.each {
+        from zipTree(it.absolutePath).matching {
+            include '*.js'
+            include '*.js.map'
+        }
+    }
+
+    into "${buildDir}/node_modules"
+}
+
+task fonts(type: Copy){
+    from 'src/main/fonts'
+    into 'build/fonts'
+}
+
+task img(type: Copy){
+    from 'src/main/img'
+    into 'build/img'
+}
+
+task sass(type: YarnTask, dependsOn: [yarnInstall]) {
+    args = ['sass']
+}
+
+task bundle(type: YarnTask, dependsOn: [yarnInstall,runDceKotlinJs]) {
+    args = ['bundle']
+}
+
+assemble {
+    dependsOn populateNodeModules
+    dependsOn sass
+    dependsOn fonts
+    dependsOn img
+}
+
+build.dependsOn bundle

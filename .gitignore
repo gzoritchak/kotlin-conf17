@@ -1,0 +1,16 @@
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Gradle
+build/
+.gradle/
+conf/conf-common/
+conf/conf-jvm/src/

@@ -1,0 +1,125 @@
+@import "g-grid";
+
+$background-page: "::before";
+$background-transition: "::after";
+
+.slider-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+
+  .slider-page-box {
+    @include g-container;
+    padding-top: 16rem;
+    padding-bottom: 5rem;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+
+    .slider-text {
+      @include g-offset(3);
+      @include g-column(8);
+      @include g-marge;
+    }
+
+  }
+
+  &#{$background-page},
+  &#{$background-transition} {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &:first-child#{$background-transition} {
+    display: none;
+  }
+  &#{$background-page} {
+    background-color: $background-color;
+  }
+  &#{$background-transition}{
+    background-color: $transition-color;
+  }
+
+  // position
+  &#{$background-transition} {  z-index: 3;  }
+  .slider-page-box          {  z-index: 2;  }
+  &#{$background-page}       {  z-index: 1;  }
+
+  // pages transitions
+  $transition-duration: 1000ms;
+  @mixin transition-page-box(){
+    transition: transform $transition-duration ease-in-out,
+                opacity $transition-duration cubic-bezier(0.25, 0.25, 0.25, 1);
+  }
+  @mixin transition-background-page(){
+    transition: transform $transition-duration ease-in-out;
+  }
+  @mixin transition-background-transition() {
+    transition: transform $transition-duration cubic-bezier(0.25, 0.25, 0.25, 1);
+  }
+
+  &[page-state="previous"] {
+    z-index: 1;
+    @include transition-page-box;
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+
+    &#{$background-page} {
+      @include transition-background-page;
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    &#{$background-transition} {
+      @include transition-background-transition;
+      transform: translate3d(-200%, 0, 0);
+    }
+
+  }
+
+  &[page-state="current"] {
+    z-index: 2;
+    @include transition-page-box;
+    opacity: 1;
+    transform: translate3d(0%, 0, 0);
+
+    &#{$background-page} {
+      @include transition-background-page;
+      transform: translate3d(0%, 0, 0);
+    }
+
+    &#{$background-transition} {
+      @include transition-background-transition;
+      transform: translate3d(-100%, 0, 0);
+    }
+
+  }
+
+  &[page-state="next"] {
+    z-index: 3;
+    @include transition-page-box;
+    opacity: 1;
+    transform: translate3d(100%, 0, 0);
+
+    &#{$background-page} {
+      @include transition-background-page;
+      transform: translate3d(100%, 0, 0);
+    }
+
+    &#{$background-transition} {
+      @include transition-background-transition;
+      transform: translate3d(0%, 0, 0);
+    }
+
+  }
+  &[page-state="next"]:first-child {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "requirejs": "^2.3.5"
+  },
+  "devDependencies": {
+    "node-sass": "4.5.3",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "2.7.1"
+  },
+  "scripts": {
+    "sass": "node-sass --source-map=true --output-style=compressed src/main/sass/main.scss build/css/style.css",
+    "watch-build-style": "node-sass --watch --source-map=true --output-style=compressed src/style/main.scss static/style/style.css",
+    "bundle": "webpack",
+    "devserver": "webpack-dev-server --compress"
+  }
+}

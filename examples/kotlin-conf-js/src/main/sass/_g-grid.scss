@@ -1,0 +1,22 @@
+@import "g-parameters";
+
+@mixin g-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+@mixin g-marge {
+  box-sizing: border-box;
+  padding-left: $margin-document / 2;
+  padding-right: $margin-document / 2;
+}
+
+@mixin g-offset($number-column-width: $total-column, $number-column: $total-column, $position: left) {
+  margin-#{$position}: (100 * $number-column-width) / $number-column * 1%;
+}
+
+@mixin g-column($number-column-width: $total-column, $number-column: $total-column) {
+  width: (100 * $number-column-width) / $number-column * 1%;
+}

@@ -1,0 +1,163 @@
+@import "g-fonts";
+@import "g-grid";
+
+// font
+h1{
+  @include font-xxl;
+}
+h2{
+  @include font-xl;
+}
+h3{
+  @include font-l;
+}
+h4{
+  @include font-m;
+}
+p{
+  @include font-reg;
+}
+h5{
+  @include font-s;
+}
+h6{
+  @include font-xs;
+}
+.notes{
+  @include font-notes;
+}
+
+// list
+ol,
+ul {
+  padding-left: 8rem;
+  @include font-reg;
+  > li {
+    position: relative;
+    list-style-type: none;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-right: 3rem;
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  &:not(.nobullet) {
+    > li::before {
+      content: "\002014";
+    }
+  }
+  &.nobullet {
+    padding-left: 0;
+    > li {
+      list-style-type: none;
+    }
+  }
+}
+ol {
+  counter-reset: item;
+  > li {
+    counter-increment: item;
+    &::before{
+      content: counter(item)".";
+      font-variant: tabular-nums;
+    }
+  }
+}
+
+li.side-by-side {
+  display: flex;
+}
+
+
+// list item one above the other
+.over {
+  position: relative;
+  li {
+    display: block;
+    position: absolute;
+    background-color: $background-color;
+    figure {
+      background-color: $background-color;
+    }
+  }
+}
+
+// ui
+*::selection {
+  background-color: hsla(242, 30%, 90%, 1);
+  color: hsla(242, 80%, 50%, 1);
+}
+button,
+.button {
+  align-items: flex-start;
+  text-align: center;
+  padding: 2px 2ex 3px;
+  font-size: 4rem;
+  background: none;
+  border: solid 1px;
+  font-weight: 300;
+  box-sizing: border-box;
+  height: 5ex;
+  line-height: 1ex;
+  cursor: pointer;
+  border-radius: 3px;
+  user-select: none;
+  &:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+// image
+.image-large,
+.image-reg,
+.image-sm {
+  margin: 5rem 0 0;
+  position: relative;
+  > img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  > figcaption {
+    @include font-s;
+    @include g-column(3, 8);
+    position: absolute;
+    top: -10px;
+    left: -1 * $margin-document / 2;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+.image-large {
+  @include g-column(6, 8);
+}
+.image-reg {
+  @include g-column(5, 8);
+}
+.image-sm {
+  @include g-column(3, 8);
+}
+
+
+.image-full {
+  @include g-marge;
+  margin: 8rem 0 0;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  > figcaption {
+    @include font-s;
+    @include g-column(3, 8);
+    position: absolute;
+    top: -10px;
+    left: -1 * $margin-document / 2;
+    transform: translate3d(-100%, 0, 0);
+  }
+}

@@ -1,0 +1,26 @@
+// size use for layout (font-size and horizontal spacing)
+// this document use REM unit;
+// $document-unit is used for html font-size value.
+$document-unit: 5px;
+
+// default column number
+$total-column: 12;
+
+// gutter document width
+$margin-document: 30px;
+
+// set font document
+$default-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// colors
+$color-primary: #433EE0;
+
+// background slider color
+$background-intro-gradient: linear-gradient(45deg, #433EE0 0%, #433EE0 33.33%, #B346DD 66.66%, #DE427D 100%);
+$background-color: hsla(0, 0%, 97.5%, 1);
+$transition-color: $color-primary;
+
+// font color
+$color: black;
+$color-negative: $background-color;
+$color-light: hsla(0, 0%, 50%, 1);

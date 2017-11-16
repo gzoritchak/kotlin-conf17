@@ -1,0 +1,72 @@
+@import "g-grid";
+@import "g-fonts";
+
+.slider-header {
+  @include g-container;
+  box-sizing: border-box;
+  width: 100%;
+  height: 16rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  cursor: default;
+  user-select: none;
+
+  .logo-container {
+    @include g-column(2, 4);
+    @include g-marge;
+
+    .logo {
+      @include font-m;
+      letter-spacing: -.31em;
+      overflow: hidden;
+      display: inline-block;
+      transition: transform 750ms ease-in-out;
+      transform: translate3d(503px, 0, 0);
+      .logo-icon {
+        fill: $color-primary;
+        vertical-align: top;
+        transition: transform 750ms ease-in-out;
+        transform: translate3d(-100%, 0, 0);
+      }
+      .logo-type {
+        letter-spacing: -0.05em;
+        display: inline-block;
+        vertical-align: top;
+        color: $color-negative;
+        transition: color 500ms ease-in-out;
+      }
+      .logo-domain-extension {
+        letter-spacing: 0;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 0.1em;
+        transition: transform 750ms ease-in-out;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  .slider-title,
+  .chapter-title {
+    @include g-column(1, 4);
+    @include g-marge;
+    opacity: 0;
+    padding-top: 3rem;
+    transform: translate3d(200%,0,0);
+  }
+
+  // transition when slider started
+  @mixin started-animation($delay){
+    transition: transform 500ms ease-out $delay * 1ms, opacity 250ms $delay + 350ms ease-in-out;
+  }
+
+  .slider-title {
+    @include started-animation(0);
+  }
+  $shift: 50;
+  .chapter-title {
+    @include started-animation(50);
+  }
+}

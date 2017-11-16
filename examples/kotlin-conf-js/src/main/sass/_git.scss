@@ -1,0 +1,22 @@
+@import "g-parameters";
+.git {
+  .git-container {
+    position: fixed;
+    right: $margin-document/2;
+    padding-top: 2rem;
+  }
+  .git-branch {
+    display: block;
+    border: none;
+    color: $color;
+    font-size: 4rem;
+    background-color: #cccccc;
+    line-height: 2ex;
+    height: 3ex;
+    font-family: monospace;
+    &:hover,
+    &:focus {
+      background-color: hsla(0, 0%, 60%, 1);
+    }
+  }
+}

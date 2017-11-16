@@ -1,0 +1,35 @@
+@import "g-grid";
+
+.cartel-profile {
+  @include g-container;
+  max-width: 80rem;
+  padding-top: $margin-document / 2;
+  padding-bottom: $margin-document / 2;
+  .img-container {
+    @include g-column(1, 3);
+    @include g-marge;
+    > img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 100%;
+    }
+  }
+  .txt-container {
+    @include g-container;
+    align-content: center;
+    @include g-column(2, 3);
+    @include g-marge;
+    font-size: 5rem;
+    .name {
+      @include g-column(1, 1);
+    }
+    .twitter {
+      @include g-column(1, 1);
+      color: $color-primary;
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 1em;
+    }
+  }
+}

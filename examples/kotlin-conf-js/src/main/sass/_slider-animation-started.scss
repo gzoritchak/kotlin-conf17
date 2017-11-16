@@ -1,0 +1,65 @@
+@import "g-parameters";
+
+.slider:not([started = "true"]){
+  color: white;
+}
+
+.slider[started = "true"] {
+  .slider-background {
+    .background-color-pages { // from slider-background file
+      cx: 70% !important;
+      cy: 30% !important;
+      r: 100% !important;
+      opacity: 1 !important;
+    }
+    .animation {
+      animation: none;
+    }
+  }
+
+  #kotlin-conf-logo {
+    transform: translate3d(-50%, -450%, 0);
+    opacity: 0;
+  }
+
+  .slider-header { // from slider-header file
+    .logo-container {
+      .logo {
+        transform: translate3d(0, 0, 0);
+        .logo-icon {
+          transform: translate3d(0, 0, 0);
+        }
+        .logo-type {
+          color: $color-primary;
+        }
+        .logo-domain-extension {
+          transform: translate3d(100%, 0, 0);
+        }
+      }
+    }
+    .slider-title,
+    .chapter-title {
+      transform: translate3d(0%,0,0);
+      opacity: 1;
+    }
+  }
+
+  .slider-footer { // from slider-footer file
+    .footer-progress {
+      .footer-progress-dimmer {
+        transform: translate3d(-90%, 0, 0);
+      }
+    }
+  }
+
+  // set up pages position and remove intro title
+  .slider-intro {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+
+  .slider-pages-container {
+    transform: translate3d(0, 0%, 0);
+    opacity: 1;
+  }
+}

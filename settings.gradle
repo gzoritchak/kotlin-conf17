@@ -1,0 +1,5 @@
+include 'conf-js'
+project(":conf-js").projectDir = file("conf/conf-js")
+include 'runner-js'
+include 'kotlin-conf-js'
+project(":kotlin-conf-js").projectDir = file("examples/kotlin-conf-js")

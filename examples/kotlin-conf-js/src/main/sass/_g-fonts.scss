@@ -1,0 +1,89 @@
+@import "g-parameters";
+
+@mixin font-xxl { //h1
+  font-family: $default-font-family;
+  font-size: 24rem;
+  font-weight: 500;
+  line-height: 26rem;
+  padding-top: 14px;
+  padding-bottom: 6px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-xl { //h2
+  font-family: $default-font-family;
+  font-size: 12rem;
+  font-weight: 500;
+  line-height: 12rem;
+  padding-top: 11px;
+  padding-bottom: 9px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-l { //h3
+  font-family: $default-font-family;
+  font-size: 8rem;
+  font-weight: 600;
+  line-height: 12rem;
+  padding-top: 17px;
+  padding-bottom: 3px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-m { //h4
+  font-family: $default-font-family;
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 8rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-reg { //p
+  font-family: $default-font-family;
+  font-size: 6rem;
+  font-weight: 500;
+  line-height: 8rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-s { //h5
+  font-family: $default-font-family;
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 4rem;
+  padding-top: 4px;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-xs { //h6
+  font-family: $default-font-family;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 4rem;
+  padding-top: 4px;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@mixin font-notes { //.notes
+  font-family: $default-font-family;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 2rem;
+  padding-top: 4px;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+  margin-top: 0;
+}

@@ -1,0 +1,23 @@
+//@import "fonts-loader";
+@import "init";
+@import "layout";
+@import "git";
+@import "cartel-profile";
+@import "slider";
+@import "slider-header";
+@import "slider-page";
+@import "slider-footer";
+@import "slider-background";
+@import "slider-animation-started"; // must be last import (for css transition)
+@import "transition-in-pages";
+
+.test {
+  @include g-column(1);
+  @include g-marge;
+  height: 10px;
+}
+
+body {
+  height: 100%;
+}
+
